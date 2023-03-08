@@ -1,5 +1,5 @@
-import { User } from "src/app/auth/entities/user.entity";
-import { Category } from "src/app/category/entities/category.entity";
+import { User } from "../../auth/entities/user.entity";
+import { Category } from "../../category/entities/category.entity";
 import { BeforeInsert, Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import slugify from "slugify";
 import { Exclude } from "class-transformer";
@@ -59,5 +59,15 @@ export class Post {
       lower: true,
       replacement: '_'
     });
+  }
+
+  constructor(post?: Partial<Post>) {
+    this.id = post?.id;
+    this.title = post?.title;
+    this.content = post?.content;
+    this.slug = post?.slug;
+    this.createdAt = post?.createdAt;
+    this.updateAt = post?.updateAt;
+    this.mainImageUrl = post?.mainImageUrl;
   }
 }

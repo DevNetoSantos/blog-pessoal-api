@@ -1,7 +1,8 @@
-import { Post } from "src/app/post/entities/post.entity";
+
 import { BeforeInsert, Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import * as bcrypt from 'bcrypt';
 import { UserRoles } from "../enum/user-roles";
+import { Post } from "../../post/entities/post.entity";
 
 @Entity()
 export class User {
